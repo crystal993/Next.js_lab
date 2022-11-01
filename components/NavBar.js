@@ -9,16 +9,20 @@ export default function NavBar() {
 
   return (
     // 클래스 이름을 쓸 때 프로퍼티 형식으로 쓴다.
-    <nav className={styles.nav}>
+    <nav>
       <Link
-        className="hello"
-        style={{ color: router.pathname === "/" ? "red" : "blue" }}
+        className={`${styles.link} ${
+          router.pathname === "/" ? styles.active : ""
+        }`}
         href="/"
       >
         Home
       </Link>
       <Link
-        style={{ color: router.pathname === "/about" ? "red" : "blue" }}
+        className={[
+          styles.link,
+          router.pathname === "/about" ? styles.active : "",
+        ].join(" ")}
         href="/about"
       >
         About
